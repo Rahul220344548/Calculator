@@ -16,31 +16,31 @@
 }
 
 .calc-row1 {
+    background: grey;
     border: 2px solid black;
     display: flex;
-    justify-content: space-between;
-    height: 70px;
+    justify-content: space-around;
+    flex: 1;
+    height: 70px;   
 }
 
 .calc-row2 {
+    background: grey;
     border: 2px solid black;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex: 1;
     height: 70px;
 }
 
-.calc-row3 {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
+.clear-btn, .percentage-btn, .lips-btn, .divide-btn {
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid #000; /* Border color and width */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f0f0f0; /* Background color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: for a 3D effect */
+    cursor: pointer; /* Cursor change on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
 }
-
-.calc-row4 {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-}
-
-
