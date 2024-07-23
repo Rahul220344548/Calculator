@@ -1,6 +1,6 @@
 
 .calculator-container{
-    background-color: aqua;
+    background-color: transparent;
     width: 500px;
     height: 520px;
     margin-top: 100px;
@@ -11,11 +11,11 @@
 
 .display {
     height: 150px;
-    background-color: antiquewhite;
+    background-color: transparent;
     border: 2px solid black;
 }
 
-.calc-row1 {
+.A {
     background: grey;
     border: 2px solid black;
     display: flex;
@@ -24,16 +24,7 @@
     height: 70px;   
 }
 
-.calc-row2 {
-    background: grey;
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-around;
-    flex: 1;
-    height: 70px;
-}
-
-.clear-btn, .percentage-btn, .lips-btn, .divide-btn {
+.btn{
     flex: 1;
     margin: 5px;
     text-align: center;
