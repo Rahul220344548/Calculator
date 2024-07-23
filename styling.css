@@ -7,6 +7,7 @@
     margin-right: auto;
     margin-left: auto;
     border: 5px solid black;
+    box-shadow: 2px 2px 5px rgba(109, 16, 16, 0.2);
 }
 
 .display {
@@ -28,10 +29,14 @@
     flex: 1;
     margin: 5px;
     text-align: center;
-    border: 2px solid #000; /* Border color and width */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #f0f0f0; /* Background color */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: for a 3D effect */
-    cursor: pointer; /* Cursor change on hover */
-    transition: background-color 0.3s; /* Smooth transition for background color change */
+    border: 2px solid #000; 
+    border-radius: 5px; 
+    background-color: #f0f0f0; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+.btn:hover {
+    background-color: #85c9db; 
+    border-color: #888; 
 }
