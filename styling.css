@@ -16,6 +16,12 @@
     border: 2px solid black;
 }
 
+.display-digits {
+    text-align: right;
+    font-weight: bolder;
+    font-size: 80px;
+    margin-right: 10px;
+}
 .A {
     background: lightgoldenrodyellow;
     border: 2px solid black;

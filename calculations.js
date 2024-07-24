@@ -16,21 +16,29 @@ function divide(inFirstNum,inSecondNum) {
     return inFirstNum / inSecondNum;
 }
 
-function displayValue(value) {
-    alert("HEllo");
-    // const display = document.querySelector(".display");
-    // const t = display.textContent = "Hello";
+function operate(operator, firstNum, secondNum) {
+    
+    if (operator == "+") {
+        console.log(add(firstNum,secondNum));
+    }
     
 }
 
-function operate(operator, firstNum, secondNum) {
-    
-    add(firstNum,secondNum);
+function displayDigits(value) {
+    const displayDigit = document.querySelector(".display .display-digits");
+    displayDigit.textContent = value;
 }
 
 let firstNum;
 let secondNum;
-let operator;
+let operator="+";
 
-const btn = document.querySelector('.clear-btn.btn');
-btn.addEventListener('click', displayValue);
+
+const digitButtons = document.querySelectorAll('.button-digit');
+
+digitButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const value = button.textContent;
+        displayDigits(value);
+    });
+})
