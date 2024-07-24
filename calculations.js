@@ -15,8 +15,8 @@ function multiply(inFirstNum,inSecondNum) {
     return inFirstNum * inSecondNum;
 }
 
-function percentage() {
-    
+function percentage(inValue) {
+    return inValue / 100;
 }
 function divide(inFirstNum, inSecondNum) {
     if (inSecondNum === 0) return "INFINITY";
@@ -123,3 +123,10 @@ clearDisplay.addEventListener('click', () => {
     operator = '';
     enteringSecondNum = false;
 });
+
+// const percent = document.querySelector('.button-percent');
+// percent.addEventListener('click', () => {
+//     let result = percentage(inValue);
+//     const currInput = document.querySelector(".display .display-digits");
+//     currInput.textContent = result;
+// });
