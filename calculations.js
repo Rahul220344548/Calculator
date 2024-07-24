@@ -1,6 +1,6 @@
 let firstNum = '';
 let secondNum = '';
-let operator;
+let operator = '';
 let enterSecondNumFlag = false;
 
 function add(inFirstNum,inSecondNum) {
@@ -15,21 +15,46 @@ function multiply(inFirstNum,inSecondNum) {
     return inFirstNum * inSecondNum;
 }
 
-function divide(inFirstNum,inSecondNum) {
+function divide(inFirstNum, inSecondNum) {
+    if (inSecondNum > inFirstNum) return "ERROR";
     return inFirstNum / inSecondNum;
 }
 
 function operate(operator, firstNum, secondNum) {
-    console.log(firstNum+ " " + operator + " " + secondNum);
-    // if (operator == "+") {
-    //     console.log(add(firstNum,secondNum));
-    // }
+    
+    const num1 = parseFloat(firstNum);
+    const num2 = parseFloat(secondNum);
+
+    switch (operator) {
+        case '+':
+            result = add(num1, num2);
+            break;
+        case '-':
+            result = subtract(num1, num2)
+            break;
+        case '×':
+            result = multiply(num1, num2)
+            break;
+        case '÷':
+            result = divide(num1, num2)
+            break;
+        default:
+            result = "NULL";
+            break;
+    }
+    
+    const currInput = document.querySelector(".display .display-digits");
+    currInput.textContent = result;
+
+    firstNum = result.toString();
+    secondNum = '';
+    operator = '';
+    enterSecondNumFlag= false;
     
 }
 
 function setDisplay(value) {
 
-    
     const currInput = document.querySelector(".display .display-digits");
       
     if (enterSecondNumFlag) {
@@ -42,22 +67,22 @@ function setDisplay(value) {
             currInput.textContent += value;
         }
     }
-    
+
     //If no operator has been selected yet, update the first number
     if (!operator) {
         firstNum = currInput.textContent;
     } else {
         secondNum = currInput.textContent;
     }
-
 }
 
 function storeOperator(inOP) {
-    if (firstNum) {
+    const currInput = document.querySelector(".display .display-digits");
+    if (firstNum && !operator) {
         operator = inOP;
-        enteringSecondNum = true;  // Prepare for the second number input
-    }
-    console.log("Operator stored: ", operator);
+        currInput.textContent += ` ${operator} `;
+        enterSecondNumFlag = true;  // Prepare for the second number input
+    }   
 }
 
 const digitButtons = document.querySelectorAll('.button-digit');
@@ -76,7 +101,7 @@ operatorSelect.forEach(button => {
 
     button.addEventListener('click', () => {
         const operatorValue = button.textContent;
-        console.log(storeOperator(operatorValue));
+        storeOperator(operatorValue);
     });
 });
 
@@ -90,5 +115,9 @@ equal.addEventListener('click', () => {
 const clearDisplay = document.querySelector('.button-clr');
 clearDisplay.addEventListener('click', () => {
     const currInput = document.querySelector(".display .display-digits");
-    setTimeout(() => window.location.reload(), 100);
+    currInput.textContent = '0';
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    enteringSecondNum = false;
 });
