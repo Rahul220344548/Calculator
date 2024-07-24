@@ -15,9 +15,12 @@ function multiply(inFirstNum,inSecondNum) {
     return inFirstNum * inSecondNum;
 }
 
+function percentage() {
+    
+}
 function divide(inFirstNum, inSecondNum) {
-    if (inSecondNum > inFirstNum) return "ERROR";
-    return inFirstNum / inSecondNum;
+    if (inSecondNum === 0) return "INFINITY";
+    return parseFloat((inFirstNum / inSecondNum).toFixed(3));
 }
 
 function operate(operator, firstNum, secondNum) {
@@ -46,11 +49,11 @@ function operate(operator, firstNum, secondNum) {
     const currInput = document.querySelector(".display .display-digits");
     currInput.textContent = result;
 
-    firstNum = result.toString();
+    firstNum = '';
     secondNum = '';
     operator = '';
-    enterSecondNumFlag= false;
-    
+    enterSecondNumFlag = false;
+
 }
 
 function setDisplay(value) {
@@ -76,17 +79,16 @@ function setDisplay(value) {
     }
 }
 
-function storeOperator(inOP) {
+function storeOperator(inOperator) {
     const currInput = document.querySelector(".display .display-digits");
     if (firstNum && !operator) {
-        operator = inOP;
+        operator = inOperator;
         currInput.textContent += ` ${operator} `;
         enterSecondNumFlag = true;  // Prepare for the second number input
     }   
 }
 
 const digitButtons = document.querySelectorAll('.button-digit');
-
 digitButtons.forEach(button => {
     button.addEventListener('click', () => {
         const displayValue = button.textContent;
