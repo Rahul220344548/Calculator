@@ -4,15 +4,16 @@ function add(inFirstNum,inSecondNum) {
     return inFirstNum + inSecondNum;
 }
 
-function subtract() {
+function subtract(inFirstNum, inSecondNum) {
+    return inFirstNum - inSecondNum;
     
 }
-function multiply() {
-
+function multiply(inFirstNum,inSecondNum) {
+    return inFirstNum * inSecondNum;
 }
 
-function divide() {
-
+function divide(inFirstNum,inSecondNum) {
+    return inFirstNum / inSecondNum;
 }
 
 function displayValue(value) {
