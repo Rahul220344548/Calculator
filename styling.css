@@ -21,6 +21,8 @@
     font-weight: bolder;
     font-size: 80px;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
 }
 .A {
     background: lightgoldenrodyellow;
@@ -47,4 +49,8 @@
 .btn:hover {
     background-color: #85c9db; 
     border-color: #888; 
+}
+
+#button-clear{
+    background-color: grey;
 }

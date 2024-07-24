@@ -17,7 +17,7 @@ function divide(inFirstNum,inSecondNum) {
 }
 
 function operate(operator, firstNum, secondNum) {
-    
+    console.log(operator);
     if (operator == "+") {
         console.log(add(firstNum,secondNum));
     }
@@ -25,9 +25,16 @@ function operate(operator, firstNum, secondNum) {
 }
 
 function displayDigits(value) {
+
     const displayDigit = document.querySelector(".display .display-digits");
-    displayDigit.textContent = value;
+    if (displayDigit) {
+        displayDigit.textContent += value;  
+    }
+    firstNum = displayDigit.textContent;
+    
 }
+
+// NON FUNCTION CODE ??????????????????????????????????
 
 let firstNum;
 let secondNum;
@@ -38,7 +45,18 @@ const digitButtons = document.querySelectorAll('.button-digit');
 
 digitButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const value = button.textContent;
-        displayDigits(value);
+        const displayValue = button.textContent;
+        displayDigits(displayValue);
     });
 })
+
+// User Selects Operator 
+
+const operatorSelect = document.querySelectorAll('.button-sign');
+operatorSelect.forEach(button => {
+
+    button.addEventListener('click', () => {
+        const operatorValue = button.textContent;
+        operate(operatorValue);
+    });
+});
