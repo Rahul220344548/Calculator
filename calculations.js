@@ -85,7 +85,15 @@ function storeFirstOperator() {
     if (firstOperator == null) {
         firstOperator = displayValue;
         checkSecondNumisStored = true;
-        console.log(firstOperator);
+    } else { // there exists a operator "+"
+        operate(firstOperator, firstOperand, secondOperand); 
+        firstOperand = result;
+        result = null;
+        secondOperator = displayValue;
+        firstOperator = secondOperator;
+        checkSecondNumisStored = true;
+        // alert(`first = ${firstOperand} , second = ${secondOperand} , 
+        //     firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
     }
     
 }
@@ -117,8 +125,7 @@ equal.addEventListener('click', () => {
     if (result == null) {
         operate(firstOperator,firstOperand,secondOperand);
     } else {
-        const currInput = document.querySelector(".display .display-digits");
-        currInput.textContent = "ERROR";
+        console.log("HEEELLLLO");
     }
 });
 
