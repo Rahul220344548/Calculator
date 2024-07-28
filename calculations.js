@@ -25,10 +25,10 @@ function divide(inFirstNum, inSecondNum) {
 }
 
 function operate(operator, firstNum, secondNum) {
-    
+    // console.log(firstOperand + " " + operator + " " + secondNum);
     const num1 = parseFloat(firstNum);
     const num2 = parseFloat(secondNum);
-
+    
     
     
     const currInput = document.querySelector(".display .display-digits");
@@ -41,8 +41,12 @@ function operate(operator, firstNum, secondNum) {
 
 }
 
-function setDisplay(value) {
+function setDisplay() {
 
+    const currInput = document.querySelector(".display .display-digits");
+    firstOperand = currInput.textContent += displayValue;
+    
+    operate(firstOperator,firstOperand,10);
 
 }
 
@@ -51,12 +55,23 @@ function setDisplay(value) {
 const digitButtons = document.querySelectorAll('.button-digit');
 digitButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const displayValue = button.textContent;
-        setDisplay(displayValue);
+        displayValue = button.textContent;
+        setDisplay();
+    });
+})
+
+// First Operator click
+
+const getOperator = document.querySelectorAll('.button-sign');
+getOperator.forEach(button => {
+    button.addEventListener('click', () => {
+        firstOperator = button.textContent;
+        
     });
 })
 
 
+//Equal Button
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
     operate(operator,firstNum,secondNum);
@@ -64,3 +79,9 @@ equal.addEventListener('click', () => {
 
 
 
+// Clear button
+const clearDisplay = document.querySelector('.button-clr');
+clearDisplay.addEventListener('click', () => {
+    
+    alert(firstOperator);
+});
