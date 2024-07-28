@@ -91,9 +91,7 @@ function storeFirstOperator() {
         result = null;
         secondOperator = displayValue;
         firstOperator = secondOperator;
-        checkSecondNumisStored = true;
-        // alert(`first = ${firstOperand} , second = ${secondOperand} , 
-        //     firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
+        checkSecondNumisStored = true;    
     }
     
 }
@@ -123,10 +121,17 @@ getOperator.forEach(button => {
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
     if (result == null) {
-        operate(firstOperator,firstOperand,secondOperand);
+        operate(firstOperator, firstOperand, secondOperand);
+    } else if (result > 0) {
+        firstOperand = result;
+        operate(firstOperator, firstOperand, secondOperand);
     } else {
-        console.log("HEEELLLLO");
+        const currInput = document.querySelector(".display .display-digits");
+        currInput.textContent = `Error`;
     }
+    
+    // console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
+    //         firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
 });
 
 
