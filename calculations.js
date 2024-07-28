@@ -25,20 +25,28 @@ function divide(inFirstNum, inSecondNum) {
     return parseFloat((inFirstNum / inSecondNum).toFixed(3));
 }
 
-function operate(operator, firstNum, secondNum) {
+function operate(inOperator, firstOperand, secondOperand) {
     // console.log(firstOperand + " " + operator + " " + secondNum);
-    const num1 = parseFloat(firstNum);
-    const num2 = parseFloat(secondNum);
+    const num1 = parseFloat(firstOperand);
+    const num2 = parseFloat(secondOperand);
     
-    
+    switch (inOperator) {
+        case "+":
+            result = add(num1, num2);
+            break;
+        case "-":
+            result = subtract(num1, num2);
+            break;
+        case "÷":
+            result = divide(num1, num2);
+            break;
+        case "×":
+            result = multiply(num1, num2);
+            break;
+    }
     
     const currInput = document.querySelector(".display .display-digits");
     currInput.textContent = result;
-
-    firstNum = '';
-    secondNum = '';
-    operator = '';
-    enterSecondNumFlag = false;
 
 }
 
@@ -70,9 +78,10 @@ function storeFirstOperator() {
         firstOperator = displayValue;
         checkSecondNumisStored = true;
         console.log(firstOperator);
-    } else {
-        console.log(firstOperand + " " + firstOperator + " " + secondOperand);
     }
+    // else {
+    //     console.log(firstOperand + " " + firstOperator + " " + secondOperand);
+    // }
     
 }
 
@@ -100,7 +109,7 @@ getOperator.forEach(button => {
 //Equal Button
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
-    operate(operator,firstNum,secondNum);
+    operate(firstOperator,firstOperand,secondOperand);
 });
 
 
