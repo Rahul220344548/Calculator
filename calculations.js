@@ -4,6 +4,7 @@ let secondOperand = null;
 let firstOperator = null;
 let secondOperator = null;
 let result = null;
+let checkSecondNumisStored = false;
 function add(inFirstNum,inSecondNum) {
     return inFirstNum + inSecondNum;
 }
@@ -44,14 +45,39 @@ function operate(operator, firstNum, secondNum) {
 function setDisplay() {
 
     const currInput = document.querySelector(".display .display-digits");
-    firstOperand = currInput.textContent += displayValue;
     
-    operate(firstOperator,firstOperand,10);
+    if (checkSecondNumisStored) {
+        currInput.textContent = displayValue;
+        checkSecondNumisStored = false;
+    } else {
+        currInput.textContent += displayValue;
+    }
+    
+    // If no operator has been selected
+    if (!firstOperator) {
+        firstOperand = currInput.textContent;
+    } else {
+        secondOperand = currInput.textContent;
+    }
+    // operate(firstOperator,firstOperand,10);
 
 }
 
+function storeFirstOperator() {
+    // const operateVal = document.querySelector(.)
+    // stores operator if there is no operator stored yet
+    if (firstOperator == null) {
+        firstOperator = displayValue;
+        checkSecondNumisStored = true;
+        console.log(firstOperator);
+    } else {
+        console.log(firstOperand + " " + firstOperator + " " + secondOperand);
+    }
+    
+}
 
 
+// Sets display 
 const digitButtons = document.querySelectorAll('.button-digit');
 digitButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -65,8 +91,8 @@ digitButtons.forEach(button => {
 const getOperator = document.querySelectorAll('.button-sign');
 getOperator.forEach(button => {
     button.addEventListener('click', () => {
-        firstOperator = button.textContent;
-        
+        displayValue = button.textContent;
+        storeFirstOperator();
     });
 })
 
@@ -83,5 +109,5 @@ equal.addEventListener('click', () => {
 const clearDisplay = document.querySelector('.button-clr');
 clearDisplay.addEventListener('click', () => {
     
-    alert(firstOperator);
+    alert(firstOperand);
 });
