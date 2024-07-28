@@ -48,17 +48,27 @@ function operate(inOperator, firstOperand, secondOperand) {
     const currInput = document.querySelector(".display .display-digits");
     currInput.textContent = result;
 
+    //clear all global variables to avoid re-use
+    firstOperand = null;
+    secondOperand = null;
+    firstOperator = null;
+    checkSecondNumisStored = false;
+
 }
 
 function setDisplay() {
 
     const currInput = document.querySelector(".display .display-digits");
     
-    if (checkSecondNumisStored) {
-        currInput.textContent = displayValue;
+    if (checkSecondNumisStored) { //checks if secondOperand Exists 
+        currInput.textContent = displayValue; //sets current input value to 
         checkSecondNumisStored = false;
     } else {
-        currInput.textContent += displayValue;
+        if (currInput.textContent === '0') {
+            currInput.textContent = displayValue;
+        } else {
+            currInput.textContent += displayValue;
+        }
     }
     
     // If no operator has been selected
@@ -67,21 +77,16 @@ function setDisplay() {
     } else {
         secondOperand = currInput.textContent;
     }
-    // operate(firstOperator,firstOperand,10);
 
 }
 
 function storeFirstOperator() {
-    // const operateVal = document.querySelector(.)
     // stores operator if there is no operator stored yet
     if (firstOperator == null) {
         firstOperator = displayValue;
         checkSecondNumisStored = true;
         console.log(firstOperator);
     }
-    // else {
-    //     console.log(firstOperand + " " + firstOperator + " " + secondOperand);
-    // }
     
 }
 
@@ -109,7 +114,12 @@ getOperator.forEach(button => {
 //Equal Button
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
-    operate(firstOperator,firstOperand,secondOperand);
+    if (result == null) {
+        operate(firstOperator,firstOperand,secondOperand);
+    } else {
+        const currInput = document.querySelector(".display .display-digits");
+        currInput.textContent = "ERROR";
+    }
 });
 
 
@@ -118,5 +128,5 @@ equal.addEventListener('click', () => {
 const clearDisplay = document.querySelector('.button-clr');
 clearDisplay.addEventListener('click', () => {
     
-    alert(firstOperand);
+    setTimeout(() => window.location.reload(), 100);
 });
