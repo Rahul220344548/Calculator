@@ -49,7 +49,7 @@ function operate(inOperator, firstOperand, secondOperand) {
     currInput.textContent = result;
 
     //clear all global variables to avoid re-use
-    firstOperand = null;
+    firstOperand = result;
     secondOperand = null;
     firstOperator = null;
     checkSecondNumisStored = false;
@@ -122,7 +122,7 @@ const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
     if (result == null) {
         operate(firstOperator, firstOperand, secondOperand);
-    } else if (result > 0) {
+    } else if (firstOperand != null) {
         firstOperand = result;
         operate(firstOperator, firstOperand, secondOperand);
     } else {
@@ -130,8 +130,6 @@ equal.addEventListener('click', () => {
         currInput.textContent = `Error`;
     }
     
-    // console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
-    //         firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
 });
 
 
