@@ -25,10 +25,10 @@ function divide(inFirstNum, inSecondNum) {
     return parseFloat((inFirstNum / inSecondNum).toFixed(3));
 }
 
-function operate(inOperator, firstOperand, secondOperand) {
+function operate(inOperator, infirstOperand, insecondOperand) {
     // console.log(firstOperand + " " + operator + " " + secondNum);
-    const num1 = parseFloat(firstOperand);
-    const num2 = parseFloat(secondOperand);
+    const num1 = parseFloat(infirstOperand);
+    const num2 = parseFloat(insecondOperand);
     
     switch (inOperator) {
         case "+":
@@ -48,6 +48,7 @@ function operate(inOperator, firstOperand, secondOperand) {
     const currInput = document.querySelector(".display .display-digits");
     currInput.textContent = result;
 
+    
     //clear all global variables to avoid re-use
     firstOperand = result;
     secondOperand = null;
@@ -86,9 +87,12 @@ function storeFirstOperator() {
         firstOperator = displayValue;
         checkSecondNumisStored = true;
     } else { // there exists a operator "+"
+
+        console.log(`store else: first = ${firstOperand} , second = ${secondOperand} , 
+            firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
         operate(firstOperator, firstOperand, secondOperand); 
         firstOperand = result;
-        result = null;
+        // result = null;
         secondOperator = displayValue;
         firstOperator = secondOperator;
         checkSecondNumisStored = true;    
@@ -120,15 +124,20 @@ getOperator.forEach(button => {
 //Equal Button
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
-    if (result == null) {
-        operate(firstOperator, firstOperand, secondOperand);
-    } else if (firstOperand != null) {
-        firstOperand = result;
-        operate(firstOperator, firstOperand, secondOperand);
-    } else {
-        const currInput = document.querySelector(".display .display-digits");
-        currInput.textContent = `Error`;
-    }
+    const currInput = document.querySelector(".display .display-digits");
+    console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
+            firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
+    
+    console.log(`first operand ${firstOperand}`);
+    operate(firstOperator, firstOperand, secondOperand);
+    console.log(`first operand ${firstOperand}`);
+
+    
+    // else {
+    //     currInput.textContent = "ERROR";
+    // }
+    
+    
     
 });
 
