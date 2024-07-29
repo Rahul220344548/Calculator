@@ -55,3 +55,7 @@
 #button-clear{
     background-color: grey;
 }
+
+#button-divide , #button-mult , #button-plus, #button-minus, #button-equal{
+    background-color: lightcoral;
+}

@@ -48,7 +48,6 @@ function operate(inOperator, infirstOperand, insecondOperand) {
     const currInput = document.querySelector(".display .display-digits");
     currInput.textContent = result;
 
-    
     //clear all global variables to avoid re-use
     firstOperand = result;
     secondOperand = null;
@@ -88,11 +87,8 @@ function storeFirstOperator() {
         checkSecondNumisStored = true;
     } else { // there exists a operator "+"
 
-        console.log(`store else: first = ${firstOperand} , second = ${secondOperand} , 
-            firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
         operate(firstOperator, firstOperand, secondOperand); 
         firstOperand = result;
-        // result = null;
         secondOperator = displayValue;
         firstOperator = secondOperator;
         checkSecondNumisStored = true;    
@@ -124,23 +120,10 @@ getOperator.forEach(button => {
 //Equal Button
 const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
-    const currInput = document.querySelector(".display .display-digits");
-    console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
-            firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} `);
     
-    console.log(`first operand ${firstOperand}`);
     operate(firstOperator, firstOperand, secondOperand);
-    console.log(`first operand ${firstOperand}`);
 
-    
-    // else {
-    //     currInput.textContent = "ERROR";
-    // }
-    
-    
-    
 });
-
 
 
 // Clear button
