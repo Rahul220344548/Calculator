@@ -143,17 +143,19 @@ clearDisplay.addEventListener('click', () => {
 //Percentage Button
 
 const percentButton = document.querySelector('.button-percent');
+
+const updateDisplayWithPercentage = (operand) => {
+    const currInput = document.querySelector(".display .display-digits");
+    currInput.textContent = percentage(operand);
+    return currInput.textContent;
+};
+
 percentButton.addEventListener('click', () => {
     
     if (secondOperand == null) {
-        const currInput = document.querySelector(".display .display-digits");
-        currInput.textContent = percentage(firstOperand);
-        firstOperand = currInput.textContent;
-        
+        firstOperand = updateDisplayWithPercentage(firstOperand);
     } else {
-        const currInput = document.querySelector(".display .display-digits");
-        currInput.textContent = percentage(secondOperand);
-        secondOperand = currInput.textContent;
+        secondOperand = updateDisplayWithPercentage(secondOperand);
     }
     
 });
