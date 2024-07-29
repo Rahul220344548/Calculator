@@ -144,5 +144,19 @@ clearDisplay.addEventListener('click', () => {
 
 const percentButton = document.querySelector('.button-percent');
 percentButton.addEventListener('click', () => {
-    alert("percentage clicked");
+    
+    if (secondOperand == null) {
+        const currInput = document.querySelector(".display .display-digits");
+        currInput.textContent = percentage(firstOperand);
+        firstOperand = currInput.textContent;
+        
+    } else {
+        const currInput = document.querySelector(".display .display-digits");
+        currInput.textContent = percentage(secondOperand);
+        secondOperand = currInput.textContent;
+    }
+    
+    // console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
+    // firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} 
+    // displayValue: ${displayValue}`);
 });
