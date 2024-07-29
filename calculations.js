@@ -156,7 +156,14 @@ percentButton.addEventListener('click', () => {
         secondOperand = currInput.textContent;
     }
     
-    // console.log(`Equal: first = ${firstOperand} , second = ${secondOperand} , 
-    // firstOp = ${firstOperator} , secondOP = ${secondOperator} , result = ${result} 
-    // displayValue: ${displayValue}`);
+});
+
+//dot button
+
+const dotButton = document.querySelector('.button-dot');
+dotButton.addEventListener('click', () => {
+
+    const currInput = document.querySelector(".display .display-digits");
+    displayValue = currInput.textContent = ".";
+    setDisplay();
 });
