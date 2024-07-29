@@ -129,6 +129,20 @@ equal.addEventListener('click', () => {
 // Clear button
 const clearDisplay = document.querySelector('.button-clr');
 clearDisplay.addEventListener('click', () => {
-    
-    setTimeout(() => window.location.reload(), 100);
+    const currInput = document.querySelector(".display .display-digits");
+    currInput.textContent = '0';
+    displayValue = '0';
+    firstOperand = null;
+    secondOperand = null;
+    firstOperator = null;
+    secondOperator = null;
+    result = null;
+    checkSecondNumisStored = false;
+});
+
+//Percentage Button
+
+const percentButton = document.querySelector('.button-percent');
+percentButton.addEventListener('click', () => {
+    alert("percentage clicked");
 });
