@@ -177,3 +177,10 @@ dotButton.addEventListener('click', () => {
         }
     }
 });
+
+// BackSpace Button Branch
+
+const backspaceButton = document.querySelector('.button-back-space');
+backspaceButton.addEventListener('click', () => {
+    alert("Backspcae");
+});
