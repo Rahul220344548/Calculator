@@ -6,23 +6,23 @@ let secondOperator = null;
 let result = null;
 let checkSecondNumisStored = false;
 function add(inFirstNum,inSecondNum) {
-    return inFirstNum + inSecondNum;
+    return parseFloat((inFirstNum + inSecondNum).toFixed(4));
 }
 
 function subtract(inFirstNum, inSecondNum) {
-    return inFirstNum - inSecondNum;
+    return parseFloat((inFirstNum - inSecondNum).toFixed(4));
     
 }
 function multiply(inFirstNum,inSecondNum) {
-    return inFirstNum * inSecondNum;
+    return parseFloat((inFirstNum * inSecondNum).toFixed(4));
 }
 
 function percentage(inValue) {
-    return inValue / 100;
+    return parseFloat(inValue / 100);
 }
 function divide(inFirstNum, inSecondNum) {
     if (inSecondNum === 0) return "INFINITY";
-    return parseFloat((inFirstNum / inSecondNum).toFixed(3));
+    return parseFloat((inFirstNum / inSecondNum).toFixed(4));
 }
 
 function operate(inOperator, infirstOperand, insecondOperand) {
