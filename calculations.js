@@ -165,11 +165,15 @@ percentButton.addEventListener('click', () => {
 const dotButton = document.querySelector('.button-dot');
 dotButton.addEventListener('click', () => {
     
+    // This function checks and appends a dot . when users click on decimal
     const currInput = document.querySelector(".display .display-digits");
     displayValue = ".";
-    if (currInput.textContent === "0") {
-        currInput.textContent += displayValue;
-    } else {
-        setDisplay();
+
+    if (!currInput.textContent.includes('.')) {
+        if (currInput.textContent === "0") {
+            currInput.textContent += displayValue;
+        } else {
+            currInput.textContent += displayValue;
+        }
     }
 });
