@@ -60,7 +60,7 @@ function setDisplay() {
 
     const currInput = document.querySelector(".display .display-digits");
     
-    if (checkSecondNumisStored) { //checks if secondOperand Exists 
+    if (checkSecondNumisStored) { // is secondOperand store , checks if it is true 
         currInput.textContent = displayValue; //sets current input value to 
         checkSecondNumisStored = false;
     } else {
@@ -71,8 +71,8 @@ function setDisplay() {
         }
     }
     
-    // If no operator has been selected
-    if (!firstOperator) {
+    // If no operator has been 
+    if (!firstOperator) { // if first operator is falsy then store firstOperand
         firstOperand = currInput.textContent;
     } else {
         secondOperand = currInput.textContent;
@@ -82,7 +82,7 @@ function setDisplay() {
 
 function storeFirstOperator() {
     // stores operator if there is no operator stored yet
-    if (firstOperator == null) {
+    if (firstOperator == null) { 
         firstOperator = displayValue;
         checkSecondNumisStored = true;
     } else { // there exists a operator "+"
@@ -164,8 +164,12 @@ percentButton.addEventListener('click', () => {
 
 const dotButton = document.querySelector('.button-dot');
 dotButton.addEventListener('click', () => {
-
+    
     const currInput = document.querySelector(".display .display-digits");
-    displayValue = currInput.textContent = ".";
-    setDisplay();
+    displayValue = ".";
+    if (currInput.textContent === "0") {
+        currInput.textContent += displayValue;
+    } else {
+        setDisplay();
+    }
 });
