@@ -5,6 +5,7 @@ let firstOperator = null;
 let secondOperator = null;
 let result = null;
 let checkSecondNumisStored = false;
+let flag = false;
 function add(inFirstNum,inSecondNum) {
     return parseFloat((inFirstNum + inSecondNum).toFixed(4));
 }
@@ -111,6 +112,9 @@ digitButtons.forEach(button => {
 const getOperator = document.querySelectorAll('.button-sign');
 getOperator.forEach(button => {
     button.addEventListener('click', () => {
+
+        getOperator.forEach(btn => btn.classList.remove('highlighted'));
+        button.classList.add('highlighted');
         displayValue = button.textContent;
         storeFirstOperator();
     });
@@ -182,5 +186,25 @@ dotButton.addEventListener('click', () => {
 
 const backspaceButton = document.querySelector('.button-back-space');
 backspaceButton.addEventListener('click', () => {
-    alert("Backspcae");
+
+    const currentDisplayValue = document.querySelector(".display .display-digits");
+    displayValue = currentDisplayValue.textContent;
+    if (displayValue !== "0") {
+        // If the display value has only one character and it's not "0", after backspace, it should become "0"
+        if (displayValue.length === 1) {
+            displayValue = "0";
+        } else {
+            // Remove the last character from the string
+            displayValue = displayValue.slice(0, -1);
+        }
+        currentDisplayValue.textContent = displayValue;
+        
+        if (firstOperator !== null) {
+            secondOperand = currentDisplayValue.textContent;
+        } else {
+            firstOperand = currentDisplayValue.textContent;
+        }
+       
+        
+    }
 });
