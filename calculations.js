@@ -65,7 +65,7 @@ function setDisplay() {
         currInput.textContent = displayValue; //sets current input value to 
         checkSecondNumisStored = false;
     } else {
-        if (currInput.textContent === '0') {
+        if (currInput.textContent === '0' || currInput.textContent === 'ERROR') {
             currInput.textContent = displayValue;
         } else {
             currInput.textContent += displayValue;
