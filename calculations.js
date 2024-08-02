@@ -125,9 +125,18 @@ getOperator.forEach(button => {
 
 //Equal Button
 const equal = document.querySelector('.button-equal');
+
+function canOperate(firstOperator, firstOperand, secondOperand) {
+    return firstOperator != null && firstOperand != null && secondOperand != null;
+}
+
 equal.addEventListener('click', () => {
-    
-    operate(firstOperator, firstOperand, secondOperand);
+    const currInput = document.querySelector(".display .display-digits");
+    if (!canOperate(firstOperator, firstOperand, secondOperand)) {
+        currInput.textContent = "ERROR";
+    } else {
+        operate(firstOperator, firstOperand, secondOperand);
+    }
 });
 
 
