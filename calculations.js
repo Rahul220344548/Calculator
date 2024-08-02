@@ -112,10 +112,16 @@ digitButtons.forEach(button => {
 const getOperator = document.querySelectorAll('.button-sign');
 getOperator.forEach(button => {
     button.addEventListener('click', () => {
-        getOperator.forEach(btn => btn.classList.remove('highlighted'));
-        button.classList.add('highlighted');
-        displayValue = button.textContent;
-        storeFirstOperator();
+
+        const currInput = document.querySelector(".display .display-digits");
+        
+        if (!(firstOperand == null && secondOperand == null)) {
+            getOperator.forEach(btn => btn.classList.remove('highlighted'));
+            button.classList.add('highlighted');
+            displayValue = button.textContent;
+            storeFirstOperator();
+        }
+        
     });
 })
 
