@@ -68,3 +68,8 @@
 #button-equal {
     background-color:  #FF9933;
 }
+
+.highlighted {
+    background-color: #85c9db !important; 
+    border: 2px solid #000; 
+}

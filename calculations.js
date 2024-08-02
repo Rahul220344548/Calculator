@@ -112,7 +112,6 @@ digitButtons.forEach(button => {
 const getOperator = document.querySelectorAll('.button-sign');
 getOperator.forEach(button => {
     button.addEventListener('click', () => {
-
         getOperator.forEach(btn => btn.classList.remove('highlighted'));
         button.classList.add('highlighted');
         displayValue = button.textContent;
@@ -134,6 +133,7 @@ equal.addEventListener('click', () => {
 const clearDisplay = document.querySelector('.button-clr');
 clearDisplay.addEventListener('click', () => {
     const currInput = document.querySelector(".display .display-digits");
+    getOperator.forEach(btn => btn.classList.remove('highlighted'));
     currInput.textContent = '0';
     displayValue = '0';
     firstOperand = null;
@@ -205,6 +205,5 @@ backspaceButton.addEventListener('click', () => {
             firstOperand = currentDisplayValue.textContent;
         }
        
-        
     }
 });
