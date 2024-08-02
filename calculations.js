@@ -112,9 +112,6 @@ digitButtons.forEach(button => {
 const getOperator = document.querySelectorAll('.button-sign');
 getOperator.forEach(button => {
     button.addEventListener('click', () => {
-
-        const currInput = document.querySelector(".display .display-digits");
-        
         if (!(firstOperand == null && secondOperand == null)) {
             getOperator.forEach(btn => btn.classList.remove('highlighted'));
             button.classList.add('highlighted');
@@ -131,7 +128,6 @@ const equal = document.querySelector('.button-equal');
 equal.addEventListener('click', () => {
     
     operate(firstOperator, firstOperand, secondOperand);
-
 });
 
 
